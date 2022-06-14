@@ -6,67 +6,86 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Meetapp2</title>
+	<meta name="viewport" content="width=device-width" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>Registra Eventos</title>
 </h:head>
 <h:body>
-	<div class="header">
-		<h:graphicImage class="logo" library="imagens" name="discord-logo.png"/>
+	<div class="header center">
+		<h:graphicImage styleClass="logo" library="imagens"
+			name="discord-logo.png" />
 	</div>
 
-	<h1>Cadastrar Evento</h1>
+	<section class="criacao-evento">
+		<div class="formulario center">
+			<h:form id="form">
+				<h:panelGrid columns="1" cellspacing="8" class="grid">
+					<h:outputText value="Nome:" styleClass="output" />
+					<p:inputText value="#{eventoBean.evento.nome}" styleClass="input" />
 
-	<h:form  id="form">
-		<p:panelGrid columns="2">
-			<h:outputText value="Nome:" />
-			<p:inputText value="#{eventoBean.evento.nome}" />
+					<h:outputText value="Empresa:" styleClass="output" />
+					<p:inputText value="#{eventoBean.evento.empresa}"
+						styleClass="input" />
 
-			<h:outputText value="Empresa:" />
-			<p:inputText value="#{eventoBean.evento.empresa}" />
+					<h:outputText value="Local:" styleClass="output" />
+					<p:inputText value="#{eventoBean.evento.local}" styleClass="input" />
 
-			<h:outputText value="Local:" />
-			<p:inputText value="#{eventoBean.evento.local}" />
+					<h:outputText value="Data:" styleClass="output" />
+					<p:inputText value="#{eventoBean.evento.data}" styleClass="input"
+						type="date" />
 
-			<h:outputText value="Data:" />
-			<p:inputText value="#{eventoBean.evento.data}" />
+					<h:outputText value="Horário:" styleClass="output" />
+					<p:inputText value="#{eventoBean.evento.horario}"
+						styleClass="input" type="time" />
+				</h:panelGrid>
 
-			<h:outputText value="Horário:" />
-			<p:inputText value="#{eventoBean.evento.horario}" />
+				<div class="center">
+					<p:commandButton value="Salvar" styleClass="ui-button-raised"
+						action="#{eventoBean.adicionarEvento}"
+						update="tabela-eventos form" />
+				</div>
+			</h:form>
+		</div>
+	</section>
 
-			<p:commandButton value="Salvar" styleClass="ui-button-raised"
-				action="#{eventoBean.adicionarEvento}" update="tabela-eventos form" />
+	<section class="listagem-evento">
+		<div class="center">
+			<h:outputText class="titulo" value="Lista de Eventos" />
+		</div>
+
+		<div class="left">
 			<p:commandButton value="Limpar lista"
 				styleClass="ui-button-raised ui-button-danger"
 				action="#{eventoBean.limparLista}" update="tabela-eventos" />
-		</p:panelGrid>
+		</div>
+
+		<div class="lista-eventos center">
+			<p:dataTable id="tabela-eventos" var="e"
+				value="#{eventoBean.eventos}">
+				<p:column headerText="Nome" styleClass="coluna">
+					<h:outputText value="#{e.nome}" />
+				</p:column>
+
+				<p:column headerText="Empresa" styleClass="coluna">
+					<h:outputText value="#{e.empresa}" />
+				</p:column>
+
+				<p:column headerText="Local" styleClass="coluna">
+					<h:outputText value="#{e.local}" />
+				</p:column>
+
+				<p:column headerText="Data" styleClass="coluna">
+					<h:outputText value="#{e.data}" />
+				</p:column>
+
+				<p:column headerText="Horário" styleClass="coluna">
+					<h:outputText value="#{e.horario}" />
+				</p:column>
+			</p:dataTable>
+		</div>
+	</section>
 
 
-	</h:form>
-
-	<h1>Lista de Eventos</h1>
-
-	<div class="card" style="padding: 10px">
-		<p:dataTable id="tabela-eventos" var="e" value="#{eventoBean.eventos}">
-			<p:column headerText="Nome">
-				<h:outputText value="#{e.nome}" />
-			</p:column>
-
-			<p:column headerText="Empresa">
-				<h:outputText value="#{e.empresa}" />
-			</p:column>
-
-			<p:column headerText="Local">
-				<h:outputText value="#{e.local}" />
-			</p:column>
-
-			<p:column headerText="Data">
-				<h:outputText value="#{e.data}" />
-			</p:column>
-
-			<p:column headerText="Horario">
-				<h:outputText value="#{e.horario}" />
-			</p:column>
-		</p:dataTable>
-	</div>
 
 </h:body>
 </html>

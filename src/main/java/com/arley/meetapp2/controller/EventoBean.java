@@ -2,15 +2,11 @@ package com.arley.meetapp2.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.primefaces.PrimeFaces;
 
 import com.arley.meetapp2.model.Evento;
 
