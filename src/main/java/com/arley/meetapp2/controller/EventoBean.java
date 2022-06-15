@@ -28,11 +28,12 @@ public class EventoBean implements Serializable{
 	
 	private List<Evento> eventos = new ArrayList<Evento>();
 	
+	@PostConstruct
 	public void init() {
 		preencherLista();
 	}
 	
-	public void adicionarEvento() {
+	public String adicionarEvento() {
 		eventos.add(evento);
 		
 		//INSERT
@@ -44,24 +45,30 @@ public class EventoBean implements Serializable{
 		preencherLista();
 		
 		evento = new Evento();
-	}
-	
-	@PostConstruct
-	public void preencherLista() {
-		List<Evento> a = new ArrayList<Evento>();
 		
+		return "";
+	}
+
+	public void preencherLista() {		
 		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		
-		eventos = em.createQuery("from Evento").getResultList();
+		eventos = em.createQuery("FROM Evento").getResultList();
+		
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	public void limparLista() {
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.createQuery("DELETE FROM Evento").executeUpdate();
 		
 		em.getTransaction().commit();
 		em.close();
 		
-	}
-	
-	public void limparLista() {
-		eventos = new ArrayList<Evento>();
+		preencherLista();
 	}
 
 	public Evento getEvento() {
