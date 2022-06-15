@@ -13,36 +13,36 @@
 </h:head>
 <h:body>
 	<div class="header center">
-		<img class="logo" src="resources/imagens/discord-logo.png"/>
+		<img class="logo" src="resources/imagens/discord-logo.png" alt="eventos.com"/>
 	</div>
 
 	<section class="criacao-evento">
 		<div class="formulario center">
 			<h:form id="form">
-				<h:panelGrid columns="1" cellspacing="8" class="grid">
-					<h:outputText value="Nome:" styleClass="output" />
-					<p:inputText value="#{eventoBean.evento.nome}" styleClass="input" />
+				<h:panelGrid id="panel" columns="1" cellspacing="8" class="grid">
+					<h:outputLabel value="Nome:" styleClass="output" for="nome"/>
+					<p:inputText id="nome" value="#{eventoBean.evento.nome}" styleClass="input" />
 
-					<h:outputText value="Empresa:" styleClass="output" />
-					<p:inputText value="#{eventoBean.evento.empresa}"
+					<h:outputLabel value="Empresa:" styleClass="output" for="empresa"/>
+					<p:inputText id="empresa" value="#{eventoBean.evento.empresa}"
 						styleClass="input" />
 
-					<h:outputText value="Local:" styleClass="output" />
-					<p:inputText value="#{eventoBean.evento.local}" styleClass="input" />
+					<h:outputLabel value="Local:" styleClass="output" for="local"/>
+					<p:inputText id="local" value="#{eventoBean.evento.local}" styleClass="input" />
 
-					<h:outputText value="Data:" styleClass="output" />
-					<p:inputText value="#{eventoBean.evento.data}" styleClass="input"
+					<h:outputLabel value="Data:" styleClass="output" for="data"/>
+					<p:inputText id="data" value="#{eventoBean.evento.data}" styleClass="input"
 						type="date" />
 
-					<h:outputText value="Horário:" styleClass="output" />
-					<p:inputText value="#{eventoBean.evento.horario}"
+					<h:outputLabel value="Horário:" styleClass="output" for="horario"/>
+					<p:inputText id="horario" value="#{eventoBean.evento.horario}"
 						styleClass="input" type="time" />
 				</h:panelGrid>
 
 				<div class="center">
 					<p:commandButton value="Salvar" styleClass="ui-button-raised"
-						action="#{eventoBean.adicionarEvento}"
-						update="tabela-eventos form" />
+						action="#{eventoBean.adicionarEvento}" 
+						process="@form" update="form tabela-eventos"/>
 				</div>
 			</h:form>
 		</div>

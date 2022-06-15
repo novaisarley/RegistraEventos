@@ -33,7 +33,7 @@ public class EventoBean implements Serializable{
 		preencherLista();
 	}
 	
-	public String adicionarEvento() {
+	public void adicionarEvento() {
 		eventos.add(evento);
 		
 		//INSERT
@@ -45,14 +45,12 @@ public class EventoBean implements Serializable{
 		preencherLista();
 		
 		evento = new Evento();
-		
-		return "";
 	}
 
 	public void preencherLista() {		
 		em = emf.createEntityManager();
 		em.getTransaction().begin();
-		
+	
 		eventos = em.createQuery("FROM Evento").getResultList();
 		
 		em.getTransaction().commit();
