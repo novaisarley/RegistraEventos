@@ -20,8 +20,7 @@
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL8Dialect" />
 			
-			-->
-			
+			-->		
 			<!-- POSTGRES ABAIXO -->
 
 			<property name="hibernate.connection.url"
