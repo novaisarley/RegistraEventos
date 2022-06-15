@@ -37,20 +37,21 @@
 			<version>5.6.8.Final</version>
 		</dependency>
 		
-		<!-- PARA MYSQL-->
+		<!-- PARA MYSQL
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.29</version>
 		</dependency>
+		-->
 
-		<!-- PARA POSTGRES 
+		<!-- PARA POSTGRES -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.4.0</version>
 		</dependency>
-		-->
+		
 
 	</dependencies>
 
