@@ -2,16 +2,42 @@ package com.arley.meetapp2.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "evento")
 public class Evento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String nome;
-	private String empresa;
-	private String local;
-	private String data;
-	private String horario;
-	private String texto;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	
+	private String nome;
+	
+	private String empresa;
+	
+	@Column(name = "localizacao")
+	private String local;
+	
+	@Column(name = "data_evento")
+	private String data;
+	
+	private String horario;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -52,13 +78,6 @@ public class Evento implements Serializable{
 		this.horario = horario;
 	}
 
-	public String getTexto() {
-		return texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
 
 	@Override
 	public String toString() {
