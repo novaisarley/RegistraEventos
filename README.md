@@ -4,6 +4,7 @@
 - PrimeFaces
 - JPA
 - Ajax
+- Tomcat 9
 - Postgres ou MySQL
 - CSS
 - HTML
