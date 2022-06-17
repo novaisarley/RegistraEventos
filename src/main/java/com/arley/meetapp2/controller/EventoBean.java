@@ -23,8 +23,7 @@ public class EventoBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	@Inject
-	private Evento evento;
+	private Evento evento = new Evento();
 	
 	private List<Evento> eventos = new ArrayList<Evento>();
 	
