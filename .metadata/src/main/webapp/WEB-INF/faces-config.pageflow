@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16554837975350" configfile="/RegistraEventos/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="CadastrarEvento.xhtml" id="pf16554841694941" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16554841694942" path="CadastrarEvento.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="PrimeiraPagina.xhtml" id="pf16554841694943" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16554841694942" path="PrimeiraPagina.xhtml"/>
+  <links id="pf16554841694942" target="pf16554841694943" source="pf16554841694941" outcome="nova_pagina_com_redirect" redirect="true"/>
+</pageflow:Pageflow>

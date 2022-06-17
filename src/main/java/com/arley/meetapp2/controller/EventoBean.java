@@ -1,12 +1,12 @@
 package com.arley.meetapp2.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,10 +27,6 @@ public class EventoBean implements Serializable{
 	
 	private List<Evento> eventos = new ArrayList<Evento>();
 	
-	@PostConstruct
-	public void init() {
-		preencherLista();
-	}
 	
 	public void adicionarEvento() {
 		eventos.add(evento);
@@ -41,9 +37,9 @@ public class EventoBean implements Serializable{
 		em.persist(evento);
 		em.getTransaction().commit();
 		
+		evento = new Evento();
 		preencherLista();
 		
-		evento = new Evento();
 	}
 
 	public void preencherLista() {		
