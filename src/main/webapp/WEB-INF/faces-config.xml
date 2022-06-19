@@ -9,7 +9,7 @@
 		<navigation-case>
 			<from-outcome>nova_pagina_com_redirect</from-outcome>
 			<to-view-id>PrimeiraPagina.xhtml</to-view-id>
-			<redirect />
+			<redirect/>
 		</navigation-case>
 	</navigation-rule>
 

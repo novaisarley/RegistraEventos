@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -15,7 +16,7 @@ import javax.persistence.Persistence;
 import com.arley.meetapp2.model.Evento;
 
 @Named
-@SessionScoped
+@RequestScoped
 public class EventoBean implements Serializable{
 	
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("RegistraEventos");
