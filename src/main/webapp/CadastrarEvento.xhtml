@@ -12,6 +12,10 @@
 	<title>Registra Eventos</title>
 </h:head>
 <h:body>
+	<f:metadata>
+		<f:viewAction action="#{eventoBean.preencherLista()}" />
+	</f:metadata>
+
 	<div class="header center">
 		<img class="logo" src="resources/imagens/discord-logo.png" alt="eventos.com"/>
 	</div>
@@ -38,7 +42,6 @@
 					<p:inputText id="horario" value="#{eventoBean.evento.horario}"
 						styleClass="input" type="time" />
 				</h:panelGrid>
-
 				<div class="center">
 					<p:commandButton value="Salvar" styleClass="ui-button-raised"
 						action="#{eventoBean.adicionarEvento}" 
@@ -48,7 +51,6 @@
 		</div>
 	</section>
 	
-	#{eventoBean.preencherLista()}
 
 	<section class="listagem-evento">
 		<div class="center">
